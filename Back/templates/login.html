@@ -1,0 +1,12 @@
+{% extends "maqueta.html" %}
+{% block Perris %}
+<!-- Esta es la llamade al login de la aplicacion aqui se logueara el susario para entrar al sistema -->
+<!-- Depende que tipo de usuario es podra ver algunas cosas y otras no -->
+<form style="margin-left: 10px;" class="Login" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Ingresar al Sistema">
+    <a href="{% url 'password_reset'%}"> Recuperar Contraseña  </a>
+</form>
+<!-- aqui mostramos el login de la aplicacion le pedimos contraseña y nombre de usuario al usuario-->
+{% endblock %}

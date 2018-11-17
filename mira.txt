@@ -1,0 +1,60 @@
+'''    
+@login_required(login_url='login')
+def gestionarUsuarios(request):
+    actual=request.user
+    form=AgregarUsuario(request.POST)
+    if form.is_valid():
+        data=form.cleaned_data
+       # regDB=User(username=data.get("username"),password=data.get("password"),email=data.get("correo"))
+        regDB=User.objects.create_user(data.get("username"),data.get("correo"),data.get("password"))
+        regDB.save()
+    usuarios=User.objects.all()
+    form=AgregarUsuario()
+    return render(request,"GestionarUsuarios.html",{'actual':actual,'form':form,'usuarios':usuarios,})
+'''
+
+
+
+# regDB=User(username=data.get("username"),password=data.get("password"),email=data.get("correo"))
+
+
+
+<!---html>
+    <head></head>
+    <body>
+        <header>
+            {% if actual %}
+            <div class="logo">Bienvenido {{actual.username}}</div>
+            {%endif%}
+            <nav>
+                <a href="{% url 'inicio'%}">Home</a>
+                <a href="{% url 'gestionarUsuarios'%}">Usuarios</a>
+                <a href="{% url 'logout' %}">Salir</a>
+                
+            </nav>
+        </header>
+        <section>
+            <div class="contenedor">
+                {% block Login%}
+                {% endblock %}
+                <div class="lista">
+                    {% block Lista%}
+                    {% endblock %}
+                </div>
+                <div class="formulario">
+                    {% block Formulario%}
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+    </body>
+</html-->
+
+
+
+
+
+#class AgregarUsuario(forms.Form):
+ #   username=forms.CharField(widget=forms.TextInput(),label="Nombre Usuario")
+  #  password=forms.CharField(widget=forms.PasswordInput(),label="contraseña")
+   # correo=forms.EmailField(widget=forms.EmailInput(),label="Correo")

@@ -1,0 +1,137 @@
+* {
+	margin: 0;/*eliminando los margeners que da por defecto el navegador*/
+	padding: 0;/*eliminando el pading que da por defecto el navegador*/
+	box-sizing: border-box;/*para cambiar el modelo de caja por defecto de los navegadores*/
+	
+	-webkit-box-sizing:border-box;/*para adaptarlo a la pantalla*/
+	-moz-box-sizing:border-box;/*para adaptarlo a la pantalla*/
+}
+
+body {
+	background: #17D3B7;/*le damos un color de fondo*/
+	-webkit-background-size:cover;/*para que se adapte a la pantalla*/
+	}
+
+.Formulario{/*Aqui le dpy forma al formulario*/
+	padding: 2px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	color: #000;/*aqui le digo que sean las letras de color blanco*/
+
+
+}
+.error {/*trate de poner los mensajes de error por columnas*/
+	flex-wrap:wrap;
+	align-items:center;
+	flex-direction: column;
+}
+
+
+header .logo {/* aqui adecuo el logo para que quede centrado y el lo alto de la pagina*/
+	margin: auto;
+}
+
+header .logo img {
+	width:300px;
+	vertical-align: top;
+	padding-bottom: 5px;
+
+}
+
+nav {/*al igual que en el menu del index le doy forma al boton de regresar debajo del formulario*/
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	flex-direction: column;
+}
+
+ nav a {/*aqui le doy forma al boton*/
+	border-bottom: #fff 1px solid;
+	background:#41C989    ;
+	color:#fff;
+	text-align: center;
+	text-decoration: none;
+	padding: 10px;
+	width: 100%;
+	border-bottom: 1px solid #6FCA8A;
+	flex-grow:1; 
+}
+
+/*Especifica el numero maximo de items flex que pueden adecuarse en una zona*/
+nav a:hover {
+	background:#7DEEB9  ;/*color de fondo del formulario*/
+
+}
+
+.form_text{
+	margin: 4px 15px; /*a qui le digo a los input que tengan una forma*/
+}
+
+#registration_form {
+	background: rgba(0,0,0,0.6);/*aqui le doy opacidad al color de fondo que es un color negro*/
+	margin: auto;/*con un margen atutomatico para que se centre*/
+}
+input {
+	display: block;
+	padding-right: 48px;
+	cursor: pointer;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+}
+select{
+	display: block;
+	margin: 4px 15px; 
+	border: none;/*border none indica que no tendra bordes*/
+    border-radius: 3px;/*las esquinas seran redondeadas*/
+    cursor: pointer;
+    float: right;/*su posicion srea a la derecha*/
+}
+
+#date{
+	display: block;
+	cursor: pointer;
+    float: right;
+     border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+    padding-right: 30%;
+	
+}
+tr {
+	color: #fff;
+}
+
+.btn-enviar {/*Aqui le damos estilos al bonton enviar*/
+	margin-top: 10px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+	outline: 0px;
+}	

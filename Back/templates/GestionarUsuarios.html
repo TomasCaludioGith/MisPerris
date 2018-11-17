@@ -1,0 +1,43 @@
+{% extends "maqueta.html" %}
+{% block Perris %}
+    <h1>Lista de usuarios</h1>
+    <hr>
+    {% if usuarios %}
+    <table>
+            
+        <tr> <!-- solicitamos que se llenen los datos de un usuario para poder agregarlo  -->
+            <td> Nombre Usuario </td>   <td> Correo </td>
+        </tr> 
+        {% for u in usuarios %}
+        <tr>
+            <td>{{u.username}}</td><td>{{u.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    {% else %}
+    <!-- si no hay usuarios registrados este monstrara este manseaje -->
+    <h2>No hay usuarios registrados</h2>
+    {% endif %}
+<!-- Este es el gestion de usuarios aqui se pueden agregar usuarios -->
+
+{% endblock %}
+
+    {% block Formulario %}
+    <form method="POST" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <button type="submit">Agregar Usuario</button>
+        <br>
+        
+    </form>
+
+    <br>
+    
+<!-- Este es el  boton de gestion de mascoatas aqui se pueden agregar , eliminar y modificar las mascotas -->
+    <button> <a href="{% url 'MascotaNueva'%}"> Agregar Mascotas </a>  </button>
+    <br>
+    <br>
+        <button> <a href="{% url 'logout' %}"> Salir </a> </button>
+    {% endblock %}

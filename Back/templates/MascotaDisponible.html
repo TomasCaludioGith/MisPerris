@@ -1,0 +1,22 @@
+{% extends "maqueta.html" %}
+{% block Lista %}
+{% if mascota %}
+<table class="Lista2">
+    <tr><!-- aqui nombro cuales seran los campos que se mostraran  -->
+        <td> id Mascota </td> <td> Foto  </td><td> Nombre  </td><td> Raza  </td> <td> Genero </td> <td> Estado </td> 
+    </tr>
+    {% for m in mascota %}
+    <tr>
+        <!-- aqui le paso todos los parametros a las mascotas para que se puedan ver en especial su imagen -->
+        <td>{{m.idMascota}}</td> <td> <img src="/media/{{m.foto}}" width="100%" alt=""> </td><td>{{m.mascotaname}}</td> <td>{{m.raza}}</td> <td>{{m.generomascota}}</td> <td>{{m.estado}}</td>                    
+    </tr>
+    
+    {% endfor %}
+</table>
+{% else %}
+<h2 style="background: #33ffb5">No hay Mascotas registradas</h2>
+{% endif %}
+<!-- ese es el boton salir simplemente sales de la aplicacion y te redirecciona la index -->
+<button> <a href="{% url 'logout' %}"> Salir </a> </button>
+
+{% endblock %}

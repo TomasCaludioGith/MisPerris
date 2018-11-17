@@ -1,0 +1,92 @@
+
+{% extends "maqueta.html" %}
+{% block Perris %} 
+
+	 <div class="Formulario"><!--la clase formulario abarca toda la pagina-->
+
+	 	<header>
+	 		<div class="logo">
+				<img src="images/logo.png" width="150" alt="">
+			</div>
+
+	 		<form id="registration_form" action="#" method="post">
+	 		 	<table>
+<!------------------------------------------------------------------------------------------->	 		 	
+	 		 	  <tr>
+	 		 	  
+                            
+<!--Creo los td para hacer los inputs para el formulario
+el caracter required es solo para que el usuario no avanse si no llena un campo -->
+                        <td class="correo">Correo Electrónico:</td>
+                        	<td><input required type="email" class="form_text" name="email" id="email" placeholder="MisPerris@Veterinaria.com" ></td>
+                        <td><span class="error" id="erroremail"></span></td>
+                    </tr>
+                    <!---placeholder es para que le de un texto antes de rellenar el campo como un ejemplo-->
+<!------------------------------------------------------------------------------------------->
+                     <tr>
+                        <td class="run">Run:</td><td><input required type="text" class="form_text" name="RunUsuario" id="RunUsuario"  placeholder="12344323-3 " ></td><td><span class="error" id="errorRunUsuario"></span></td>
+                    </tr>
+                    <!--Span es para arrojar el error -->
+<!------------------------------------------------------------------------------------------->
+                    <tr>
+                        <td class="nombre">Nombre completo:</td><td><input required type="text" class="form_text" name="nombreUsuario" id="nombreUsuario" placeholder="Firulais" ></td><td><span class="error" id="errorNombre"></span></td>
+                    </tr>
+<!------------------------------------------------------------------------------------------->
+					 <tr>
+                        <td >Fecha de Nacimiento:</td><td><input required id="Date" type="Date" class="form_text"  name="Fecha" id="Fecha"  placeholder="01-08-2000" ></td><td><span class="error" id="errorFecha"></span></td>
+                        <!--con placeholder le doy un ejemplo al usuario de que poner en el input  y cuando el escriba sobre el este ejemplo se borrara-->
+                    </tr>
+<!------------------------------------------------------------------------------------------->
+					 <tr>
+                        <td class="telefono">Teléfono de contacto:</td><td><input required type="text"  class="form_text" name="Telefono" id="Telefono"onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="9"  placeholder="123456789" ></td><td><span class="errorTelefono" id="errorTelefono"></span></td><!---Aqui le digo al input que no resiva caracteres osea solo numeros, no te deja poner mas de 9 dijitos en el telefono -->
+                    </tr>
+<!------------------------------------------------------------------------------------------->	
+					
+
+				<tr>
+						<td class="ciudad">Region:</td>
+							<td> <!--aqui lleno el select para que selecione las ciudades -->
+								<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+									<option value=""></option>
+									<option value="Arica">Arica</option>
+									<option value="Tarapaca">Tarapaca</option>
+									<option value="Antofagasta">Antofagasta</option>
+									
+								</select>
+							</td>
+					</tr>
+<!------------------------------------------------------------------------------------------->	
+					<tr>
+						<td char="tipo">Ciudad:</td>
+							<td> <!--aqui lleno el select para que selecione el tipo de casa -->
+								<select id="slct2" name="slct2"></select>
+							</td>
+					</tr>
+<!------------------------------------------------------------------------------------------->
+					<tr>
+						<td char="tipo">Tipo De Casa:</td>
+							<td> <!--aqui lleno el select para que selecione el tipo de casa -->
+								<select name="TipoDeCasa" id="TipoDeCasa">
+									<option value="0"> ---- Selecione una opcion ---- </option>
+									<option value="1">Casa con patio grande</option>
+									<option value="2">Casa con patio pequeño</option>
+									<option value="3">Casa sin patio</option>
+									<option value="4">Departamento</option>
+								</select>
+							</td>
+					</tr>
+
+
+<!------------------------------------------------------------------------------------------->
+					<tr>
+                    <tr>
+                        <td></td><td><input class="enviar" type="submit" value="Enviar" class="btn-enviar" id="btn-enviar"></td><td></td>
+                    </tr>
+
+                </table>
+	 	</form>
+	 	</header>
+	 	<nav > 	<a href="{% url 'inicio' %}"> Regresar a Mis perris </a></nav><!--aqui agrego un item que te regresara al index-->
+	 </div>
+
+{% endblock %}

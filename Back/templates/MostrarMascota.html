@@ -1,0 +1,36 @@
+{% extends "maqueta.html" %}
+{% block Lista %}
+<h1 >Lista de Mascotas</h1>
+{% if object_list %}
+<table class="Lista1">
+    <tr>
+        <!--- aqui mostramos todo lo necesario para que se vean las mascotas co su foto e informacioon-->
+        <td> Id Mascota </td><td> Nombre  </td> <td> Foto </td> <td> Raza  </td> <td> Genero </td> <td> Estado </td> 
+    </tr>
+    {% for m in object_list %}
+    <tr>
+         <!--- aqui llamamos los campos que tendran las mascotas mostradas con su foto e informacion -->
+        <td>{{m.idMascota}}</td> <td>{{m.mascotaname}}</td>  <td><img src="/media/{{m.foto}}" width="30%" alt=""></td> <td>{{m.raza}}</td>  <td>{{m.generomascota}}</td> <td>{{m.estado}}</td> <td>  <button > <a class="btnEditar" href="{% url 'editarMascota' m.idMascota %}">Editar</a>  </button> </td><td>  <button> <a class="btnEliminar" href="{% url 'MascotaDelete' m.idMascota %}">Eliminar</a></button></td>                    
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>No hay Mascotas registradas</h2>
+{% endif %}
+
+<ul class="pager">
+    <li>
+         <!--- aqui mostramos la paginacion de las vistas de las mascotas -->
+        {% if page_obj.has_previous %}
+        <button> <a href="?page={{ page_obj.previous_page_number }}">Previous</a>  </button> 
+        {% endif %}
+        </li>
+    <li>
+        {% if page_obj.has_next %}
+        <button>  <a href="?page={{ page_obj.next_page_number }}">Next</a>   </button>
+        {% endif %}
+    </li>
+</ul>
+<button> <a href="{% url 'logout' %}"> Salir </a> </button>
+<button> <a href="{% url 'MascotaNueva'%}"> Agregar Mascotas </a>  </button>
+{% endblock %}

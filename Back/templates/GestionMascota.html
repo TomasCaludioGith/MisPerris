@@ -1,0 +1,10 @@
+{% extends "maqueta.html" %}
+{% block Formulario %}
+<form method="post"  enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Agregar Mascotas</button>
+    <!-- aqui muestro la plantilla de las mascotas que estan regitradas en la base de datos si no se regitran ninguna no se mostrara nada -->
+</form>
+
+{% endblock %}

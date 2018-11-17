@@ -1,0 +1,10 @@
+{% extends "maqueta.html" %}
+{% block Formulario%}
+<form method="POST">
+	{% csrf_token %}
+	<!-- aqui le pregunto al usuario adminstrador si deverdad quiere eliminar la mascota si esta seguro se elimina y si no se queda -->
+	<h3>¿Desea eliminar el registro de {{ object.nombreMascota }}?</h3>	
+	<button type="submit">esta seguro de querer borrarlo ?</button>
+	<a href="{% url 'MostrarMascota' %}">Podre perrito mejor no lo borres</a>
+</form>
+{% endblock %}
